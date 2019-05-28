@@ -3,6 +3,7 @@ import math
 import sys
 import os
 import monster
+import unittest
  
 # A procedural generator for RPG enemies
 # This function should accept a set of parameters that need values
@@ -121,10 +122,20 @@ def loot_generator(level):
     #TODO
     return True
 
+class TestDiceRoller(unittest.TestCase):
 
+    def setUp(self):
+        self.randomSeed = random.seed(a=10)
+
+    def test_roll_default(self):
+        self.assertEqual(dice_roller(4, 8), [17, 4, 8, [1, 7, 8, 1]])
+    
+    def test_roll_modified(self):
+        self.assertEqual(dice_roller(3, 10, 2), [26, 3, 10, [6, 10, 10], 2])
 
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
+    unittest.main()
     main()
     

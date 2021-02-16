@@ -44,6 +44,7 @@ def ability_generator(abilities=6):
     abilities = abilities
     scores = []
     modifiers = []
+    roller = Dice(256)
     
     for each in range(abilities):
         roll = roller.dice_roller(4, 6)[3]
@@ -58,24 +59,6 @@ def ability_generator(abilities=6):
     score_mod_pairs = list(zip(scores, modifiers))
     
     return score_mod_pairs
-
-
-# Pick feats from a list and obey prerequisite requirements
-def feat_picker(feat_list, feat_slots):
-    #TODO
-    return True
-
-# Pick skills and allocate skill points
-def skills_picker(max, points, skills):
-    #TODO
-    return True
-
-# Optional: Pick equipment (not sure if this is overkill)
- 
-# Optional: Generate loot - everyone loves loot
-def loot_generator(level):
-    #TODO
-    return True
 
 if __name__ == '__main__':
     main()

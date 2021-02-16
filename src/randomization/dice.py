@@ -42,7 +42,7 @@ class Dice(object):
         Rolls = []
         try:
             for die in range(Dice):
-                Die = random.randint(1, size + 1) + Modifier
+                Die = random.randint(1, size) + Modifier
                 Rolls.append(Die)
                 Score = Score + Die
 

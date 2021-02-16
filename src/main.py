@@ -2,9 +2,7 @@ import random
 import math
 import sys
 import os
-import monster
-import unittest
-
+from monster.monster import Monster, Monster_seed
 from randomization.dice import Dice
  
 # A procedural generator for RPG enemies
@@ -17,9 +15,6 @@ def main():
     procedurally generates that stat block for the requested
     monster or monsters
     """
-    # Initialize random generator
-    # Starter = os.urandom(256)
-    # random.seed(a=Starter)
 
     hdFromCsv = [4, 6, 5]
     abilitiesFromCsv = ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
@@ -39,26 +34,7 @@ def main():
     Abilities = ability_generator()
     print("Scores: {}".format(Abilities))
 
-# Generate core stats and ability bonuses
-def ability_generator(abilities=6):
-    abilities = abilities
-    scores = []
-    modifiers = []
-    roller = Dice(256)
-    
-    for each in range(abilities):
-        roll = roller.dice_roller(4, 6)[3]
-        roll.remove(min(roll))
-        ability_score = 0
-        for each in roll:
-            ability_score = ability_score + each
-        scores.append(ability_score)
-        ability_modifier = math.floor((ability_score - 10) / 2)
-        modifiers.append(ability_modifier)
 
-    score_mod_pairs = list(zip(scores, modifiers))
-    
-    return score_mod_pairs
 
 if __name__ == '__main__':
     main()

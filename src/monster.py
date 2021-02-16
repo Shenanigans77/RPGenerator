@@ -2,7 +2,7 @@
 This defines the classes to handle monster stats 
 """
 
-class monster:
+class Monster:
     def __init__(self, name):
         self.name = name
         #self.description = []
@@ -14,7 +14,7 @@ class monster:
         self.core_ability = core_scores
 
 
-class monster_seed:
+class Monster_seed:
     def __init__(self, name, hit_dice, abilities):
         self.name = name
         self.hit_dice = hit_dice
